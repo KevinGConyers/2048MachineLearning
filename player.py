@@ -22,10 +22,10 @@ class Player():
     def move(self, board):
         x = randint(0,3)
         if x == 0:
-            board.commands(KEY_UP)
+            board.commands[KEY_UP]
         if x == 1:
-            board.commands(KEY_RIGHT)
+            board.commands[KEY_RIGHT]
         if x == 2:
-            board.commands(KEY_DOWN)
+            board.commands[KEY_DOWN]
         if x==3:
-            board.commands(KEY_LEFT)
+            board.commands[KEY_LEFT]

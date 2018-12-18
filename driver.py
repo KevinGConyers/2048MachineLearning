@@ -7,6 +7,6 @@ from logic import *
 player = Player()
 game = GameGrid()
 
-while(true):
+while(1>0):
     game.update()
-    player.play(game.matrix)
+    player.play(game)

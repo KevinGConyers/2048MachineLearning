@@ -27,7 +27,6 @@ KEY_DOWN = "'s'"
 KEY_LEFT = "'a'"
 KEY_RIGHT = "'d'"
 
-player = Player()
 
 class GameGrid(Frame):
     def __init__(self):
