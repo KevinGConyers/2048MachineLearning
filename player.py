@@ -4,19 +4,16 @@ import random
 from puzzle import *
 
 
-
 class Player():
     def __init__(self):
 
         self.score = 0
         self.goal = 2048
         #game.mainloop()
-        self.play(game.matrix)
 
     def play(self, board):
-        while(self.score < self.goal):
-            self.scan(board)
-            self.move(board)
+        self.scan(board)
+        self.move(board)
 
 
     def scan(self, board):
@@ -25,13 +22,10 @@ class Player():
     def move(self, board):
         x = randint(0,3)
         if x == 0:
-            up(board)
+            board.commands(KEY_UP)
         if x == 1:
-            right(board)
+            board.commands(KEY_RIGHT)
         if x == 2:
-            down(board)
+            board.commands(KEY_DOWN)
         if x==3:
-            left(board)
-
-
-player = Player()
+            board.commands(KEY_LEFT)

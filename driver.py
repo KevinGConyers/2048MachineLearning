@@ -8,4 +8,5 @@ player = Player()
 game = GameGrid()
 
 while(true):
+    game.update()
     player.play(game.matrix)

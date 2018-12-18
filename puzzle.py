@@ -1,6 +1,7 @@
 from tkinter import *
 from logic import *
 from random import *
+from player import *
 
 SIZE = 500
 GRID_LEN = 4
@@ -26,6 +27,8 @@ KEY_DOWN = "'s'"
 KEY_LEFT = "'a'"
 KEY_RIGHT = "'d'"
 
+player = Player()
+
 class GameGrid(Frame):
     def __init__(self):
         Frame.__init__(self)
@@ -42,7 +45,7 @@ class GameGrid(Frame):
         self.init_grid()
         self.init_matrix()
         self.update_grid_cells()
-        self.mainloop()
+        #self.mainloop()
 
     def init_grid(self):
         background = Frame(self, bg=BACKGROUND_COLOR_GAME, width=SIZE, height=SIZE)
