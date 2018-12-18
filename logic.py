@@ -24,22 +24,22 @@ def game_state(mat):
     for i in range(len(mat)):
         for j in range(len(mat[0])):
             if mat[i][j]==2048:
-                return 'win'
+                return 1
     for i in range(len(mat)-1): #intentionally reduced to check the row on the right and below
         for j in range(len(mat[0])-1): #more elegant to use exceptions but most likely this will be their solution
             if mat[i][j]==mat[i+1][j] or mat[i][j+1]==mat[i][j]:
-                return 'not over'
+                return 0
     for i in range(len(mat)): #check for any zero entries
         for j in range(len(mat[0])):
             if mat[i][j]==0:
-                return 'not over'
+                return 0
     for k in range(len(mat)-1): #to check the left/right entries on the last row
         if mat[len(mat)-1][k]==mat[len(mat)-1][k+1]:
-            return 'not over'
+            return 0
     for j in range(len(mat)-1): #check up/down entries on last column
         if mat[j][len(mat)-1]==mat[j+1][len(mat)-1]:
-            return 'not over'
-    return 'lose'
+            return 0
+    return -1
 
 
 def reverse(mat):

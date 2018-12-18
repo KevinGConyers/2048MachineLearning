@@ -7,6 +7,13 @@ from logic import *
 player = Player()
 game = GameGrid()
 
-while(1>0):
+while(game_state(game.matrix) == 0):
     game.update()
     player.play(game)
+
+if (game_state(game.matrix) == 1):
+    print("win")
+else:
+    print("lose")
+
+game.mainloop()
