@@ -42,7 +42,6 @@ class GameGrid(Frame):
         self.init_grid()
         self.init_matrix()
         self.update_grid_cells()
-        
         self.mainloop()
 
     def init_grid(self):
@@ -100,5 +99,6 @@ class GameGrid(Frame):
         while self.matrix[index[0]][index[1]] != 0:
             index = (self.gen(), self.gen())
         self.matrix[index[0]][index[1]] = 2
+
 
 gamegrid = GameGrid()
