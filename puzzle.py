@@ -44,7 +44,6 @@ class GameGrid(Frame):
         self.init_grid()
         self.init_matrix()
         self.update_grid_cells()
-        #self.mainloop()
 
     def init_grid(self):
         background = Frame(self, bg=BACKGROUND_COLOR_GAME, width=SIZE, height=SIZE)
@@ -96,6 +95,26 @@ class GameGrid(Frame):
                     self.grid_cells[1][2].configure(text="Lose!",bg=BACKGROUND_COLOR_CELL_EMPTY)
 
 
+    def bot_move(self, key):
+        if key in self.commands:
+            self.matrix,done = self.commands[key](self.matrix)
+            if done:
+                self.matrix = add_two(self.matrix)
+                self.update_grid_cells()
+                done=False
+                if game_state(self.matrix)=='win':
+                    self.grid_cells[1][1].configure(text="You",bg=BACKGROUND_COLOR_CELL_EMPTY)
+                    self.grid_cells[1][2].configure(text="Win!",bg=BACKGROUND_COLOR_CELL_EMPTY)
+                if game_state(self.matrix)=='lose':
+                    self.grid_cells[1][1].configure(text="You",bg=BACKGROUND_COLOR_CELL_EMPTY)
+                    self.grid_cells[1][2].configure(text="Lose!",bg=BACKGROUND_COLOR_CELL_EMPTY)
+
+
+
+
+
+
+
     def generate_next(self):
         index = (self.gen(), self.gen())
         while self.matrix[index[0]][index[1]] != 0:
@@ -103,4 +122,3 @@ class GameGrid(Frame):
         self.matrix[index[0]][index[1]] = 2
 
 
-gamegrid = GameGrid()
